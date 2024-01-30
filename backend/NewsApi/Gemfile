@@ -46,9 +46,13 @@ group :development do
   # gem "spring"
 end
 
-# specific gem to use news-api
-gem 'news-api'
-
-
 #enviroments variables
 gem 'dotenv-rails', groups: [:development, :test]
+
+#gem to use api calls 
+gem 'httparty'
+
+#gem for tests
+group :development, :test do
+  gem 'rspec-rails'
+end

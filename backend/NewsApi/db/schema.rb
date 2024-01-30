@@ -18,8 +18,11 @@ ActiveRecord::Schema[7.0].define(version: 2024_01_30_043548) do
     t.string "title"
     t.text "content"
     t.string "author"
-    t.datetime "published_at"
+    t.datetime "publishedAt"
     t.string "source"
+    t.string "description"
+    t.text "url"
+    t.text "urlToImage"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
