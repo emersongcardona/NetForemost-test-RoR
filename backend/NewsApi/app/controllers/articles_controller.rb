@@ -1,6 +1,6 @@
 class ArticlesController < ApplicationController
     require_relative '../services/news_api/news_service'
-  
+
     def index
 
         if Article.count < 20
@@ -11,8 +11,7 @@ class ArticlesController < ApplicationController
             end
         end
 
-        @articles = news_api.get_news
-        render json: @articles
+        render json: Article.all
     end
-  end
+end
   
