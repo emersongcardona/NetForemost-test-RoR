@@ -1,8 +1,11 @@
 <template>
   <div>
+    <router-link :to="{name: 'index'}"> regresar</router-link>
     <pre v-if="articleStore.article">{{ articleStore.article }}</pre>
     <h1 v-else>articulo no encontrado</h1>
   </div>
+
+
 </template>
     
   <script setup>
