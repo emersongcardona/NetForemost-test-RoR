@@ -24,6 +24,20 @@ export const useArticleStore = defineStore("article.store", () => {
         }
     }
 
+    async function showArticle(id) {
+        try {
+            loading.value = true;
+            const {data} = await newsApi.get(`/articles/${id}`);
+            data.publishedAt = formatDate(data.publishedAt);
+            data.time = formatTime(data.publishedAt);
+            article.value = data;
+        } catch (error) {
+            console.error("Error showing the article from API:", error);
+        } finally {
+            loading.value = false;
+        }
+    }
+
     function formatDate(dateString) {
         const dateObject = new Date(dateString);
         return format(dateObject, "MMMM d, yyyy");
@@ -35,10 +49,5 @@ export const useArticleStore = defineStore("article.store", () => {
     }
 
 
-
-    function setArticleById(id) {
-        article.value = articles.value.find((article) => article.id === parseInt(id));
-    }
-
-    return { articles, getArticles, loading, setArticleById, article, formatTime};
+    return { articles, getArticles, loading, article, formatTime, showArticle};
 });

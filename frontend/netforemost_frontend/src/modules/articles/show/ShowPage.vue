@@ -1,9 +1,9 @@
 <template>
     <div>
         <router-link :to="{ name: 'index' }" class="backButtom"
-        ><Strong>&lt;</Strong></router-link
+        ><strong>&lt;</strong></router-link
         >
-        <template v-if="articleStore.article">
+        <template v-if="!articleStore.loading && articleStore.article">
         <img
             :src="articleStore.article.urlToImage"
             alt="Imagen del artículo"
@@ -19,7 +19,7 @@
             <p class="content">{{ articleStore.article.content }}</p>
         </div>
         </template>
-        <h1 v-else>Artículo no encontrado</h1>
+        <h1 v-else>Loading</h1>
     </div>
 </template>
     
@@ -31,12 +31,8 @@ import { useArticleStore } from "@/store/article-store";
 const route = useRoute();
 const articleStore = useArticleStore();
 onMounted(() => {
-    if (!articleStore.articles.length) {
-        articleStore.getArticles();
-    }
-
-    articleStore.setArticleById(route.params.articleId);
-    });
+    articleStore.showArticle(route.params.articleId);
+});
 </script>
     
 <style scoped>

@@ -17,9 +17,8 @@ class ArticlesController < ApplicationController
 
 
     def show
-        respond_to do |format|
-            format.json { render json: @article }
-        end
+        puts "article #{@article}"
+        render json: @article
     end
 
     private
