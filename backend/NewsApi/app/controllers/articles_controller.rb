@@ -1,5 +1,6 @@
 class ArticlesController < ApplicationController
     require_relative '../services/news_api/news_service'
+    before_action :set_article, only: [:show]
 
     def index
         if Article.count < 20
@@ -13,5 +14,18 @@ class ArticlesController < ApplicationController
 
         render json: Article.all
     end
+
+
+    def show
+        respond_to do |format|
+            format.json { render json: @article }
+        end
+    end
+
+    private
+
+    def set_article
+        @article = Article.find(params[:id])
+    end
+
 end
-  
