@@ -65,25 +65,11 @@ a {
     justify-self: end;
 
 }
-.published-at {
-    font-size: 13px;
-    font-weight: 510;
-    line-height: 23px;
-    color: #909090;
-    margin-top: -15px;
-}
-
 .source {
     font-size: 13px;
     font-weight: 700;
     line-height: 16px;
     color: #69bdfd;
-}
-
-.author {
-    font-weight: 510;
-    line-height: 22.5px;
-    color: #909090
 }
 
 .article {

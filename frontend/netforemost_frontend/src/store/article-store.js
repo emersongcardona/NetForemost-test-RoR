@@ -15,6 +15,7 @@ export const useArticleStore = defineStore("article.store", () => {
             articles.value = data.map((article) => ({
                 ...article,
                 publishedAt: formatDate(article.publishedAt),
+                time: formatTime(article.publishedAt)
             }));
         } catch (error) {
             console.error("Error gettting the articles from API:", error);
@@ -28,9 +29,16 @@ export const useArticleStore = defineStore("article.store", () => {
         return format(dateObject, "MMMM d, yyyy");
     }
 
+    function formatTime(timeString) {
+        const dateObject = new Date(timeString);
+        return format(dateObject, "h:mm a");
+    }
+
+
+
     function setArticleById(id) {
         article.value = articles.value.find((article) => article.id === parseInt(id));
     }
 
-    return { articles, getArticles, loading, setArticleById, article};
+    return { articles, getArticles, loading, setArticleById, article, formatTime};
 });
