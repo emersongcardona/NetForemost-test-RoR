@@ -17,7 +17,6 @@ class ArticlesController < ApplicationController
 
 
     def show
-        puts "article #{@article}"
         render json: @article
     end
 
