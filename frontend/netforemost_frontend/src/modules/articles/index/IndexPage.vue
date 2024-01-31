@@ -1,6 +1,7 @@
 <template>
-  <div>
-    <p>Aquí irán los artículos</p>
+  <div class="logoAndCompany">
+    <img src="@/../public/images/newsLogo.svg" alt="newsLogo" />
+    <h1>NetForemost News</h1>
   </div>
   <div>
     
@@ -20,7 +21,16 @@ onMounted(()=>{
     articleStore.getArticles();
 }) 
 </script>
-  
-  <style scoped>
+
+<style scoped>
+.logoAndCompany {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+
 </style>
-  
+
+

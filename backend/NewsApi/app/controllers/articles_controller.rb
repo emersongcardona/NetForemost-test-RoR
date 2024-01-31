@@ -2,7 +2,6 @@ class ArticlesController < ApplicationController
     require_relative '../services/news_api/news_service'
 
     def index
-        puts "llamaste a index"
         if Article.count < 20
             news_api = NewsApiClient.new
             articles = news_api.get_news['articles']

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <router-link :to="{name: 'index'}"> regresar</router-link>
+    <router-link :to="{name: 'index'}" class="backButtom"><Strong>&lt;</strong></router-link>
     <pre v-if="articleStore.article">{{ articleStore.article }}</pre>
     <h1 v-else>articulo no encontrado</h1>
   </div>
@@ -24,6 +24,13 @@ onMounted(() => {
 });
 </script>
     
-    <style scoped>
+<style scoped>
+.backButtom{
+    font-size: 24px;
+    font-weight: 24px;
+    margin-left: 20px;
+    text-decoration: none;
+    color: #180E19;
+}
 </style>
     

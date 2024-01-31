@@ -1,5 +1,5 @@
 <template>
-<div>
+<div class="articles">
     <ArticleItem
         v-for="article in articles"
         :key="article.id" 
@@ -19,6 +19,13 @@ defineProps({
 });
 </script>
     
-    <style scoped>
+<style scoped>
+.articles{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    padding: 0 10px 0 10px;
+
+}
 </style>
     
