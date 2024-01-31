@@ -56,3 +56,6 @@ gem 'httparty'
 group :development, :test do
   gem 'rspec-rails'
 end
+
+#connection with external frontend server
+gem 'rack-cors'
