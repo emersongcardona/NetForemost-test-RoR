@@ -25,7 +25,7 @@ module NewsApi
     config.api_only = true
     config.middleware.insert_before 0, Rack::Cors do
       allow do
-        origins 'http://192.168.0.31:8080'  # Reemplaza con la URL de tu aplicación Vue.js
+        origins '*'
         resource '*',
           headers: :any,
           methods: [:get, :post, :put, :patch, :delete, :options, :head]
